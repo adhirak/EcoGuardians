@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>EcoGuardians</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--Main CSS-->
+    <link rel="stylesheet" href="main.css">
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/332a215f17.js" crossorigin="anonymous"></script>
+    <!--google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!--Animate.css--->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+  />
+  </head>
+  <body>
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Prevent default anchor behavior for all anchor links
+        document.querySelectorAll('.topic').forEach(topic => {
+            topic.addEventListener('click', function() {
+                scrollToSection(this.getAttribute('data-target'));
+            });
+        });
+    </script>
+    <div class="fabb-container">
+        <div class="fabb" id="fabb" onmouseover="showTooltip()" onmouseout="hideTooltip()">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc-xDOxvQC8IRb8kBaOeqz1lgfe4XAJJiYTA&s" alt="Logo" width="40" height="40"> <!-- Replace with your logo -->
+        </div>
+        <div class="tooltipp" id="tooltipp">
+            Not sure how this website works? Click <a href="#">here</a>
+        </div>
+    </div>
+    <script>
+        let tooltipTimeout;
+
+        function showTooltip() {
+            const tooltip = document.getElementById('tooltipp');
+            tooltip.classList.add('active');
+            clearTimeout(tooltipTimeout); // Clear any previous timeout
+        }
+
+        function hideTooltip() {
+            const tooltip = document.getElementById('tooltipp');
+            tooltipTimeout = setTimeout(() => {
+                tooltip.classList.remove('active');
+            }, 200); // Adjust timeout delay as needed
+        }
+
+        // Prevent tooltip from hiding when hovering over it
+        document.getElementById('tooltipp').addEventListener('mouseover', () => {
+            clearTimeout(tooltipTimeout);
+        });
+
+        // Hide tooltip when clicking on the "here" link
+        document.querySelector('.tooltipp a').addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default link behavior (navigation)
+            hideTooltip();
+            // Implement your action when the link is clicked (e.g., show help content)
+            alert('Click "here" link');
+        });
+    </script>
+      <!---Navbar-->
+      <nav class="navbar navbar-expand-lg navbar-dark nav-bg fixed-top py-2"
+      id="mainNav">
+      <div class="container">
+          <a class="navbar-brand text-white"href="#">EcoGuardians</a>
+          <button class="navbar-toggler navbar-toggler-right"type="button"
+          data-toggle="collapse"data-target="#myNavbar"aria-controls="myNavbar"aria-expanded="false"aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse"id="myNavbar">
+            <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                <li class="nav-item"><a onclick="scrollToSection('about1')" class="nav-link" href="#">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSection('stories1')">
+                    Stories
+                </a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSection('projects1')">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSection('team1')">Team</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="scrollToSection('donation1')">Donation</a></li>
+            </ul>
+        </div>
+      </div>
+        </nav>
+
+      <!---End of Navbar-->
+      <div class="floating-sidebar">
+        <br>
+        <br>
+        <!-- Instagram Link -->
+        <a href="https://www.instagram.com/" target="_blank" class="social-icon">
+            <img src="https://i.pinimg.com/736x/b9/f2/a6/b9f2a640b168cdb9f865185facee4cd3.jpg" alt="Instagram" width="40">
+        </a>
+        <br>
+
+        <!-- Twitter Link -->
+        <a href="https://twitter.com/" target="_blank" class="social-icon">
+            <img src="https://img.freepik.com/premium-vector/new-twitter-logo-x-2023-twitter-x-logo-vector-download_691560-10809.jpg" alt="Twitter" width="30">
+        </a>
+        <br>
+
+        <!-- Facebook Link -->
+        <a href="https://www.facebook.com/" target="_blank" class="social-icon">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMW9AB13KyfzyL04pPQ6MNSttPFG3O06v9ig&s" alt="Facebook" width="40">
+        </a>
+        <br>
+
+        <a href="https://www.whatsapp.com/" target="_blank" class="social-icon">
+            <img src="https://www.shutterstock.com/image-vector/telephone-icon-whatsapp-logo-phone-600nw-1169104867.jpg" alt="Whatsapp" width="40">
+        </a>
+        <br>
+    </div>
+      <!--Hero Section-->
+      <section id="hero" class="d-flex justify-content-center align-items-center">
+          <div id="heroCarousel"class="container carousel carousel-fade"
+          data-ride="carousel">
+        <!--Slide-1-->
+        <div class="carousel-item active">
+            <div class="carousel-container">
+                <h2 class="animate__animated animate__backInDown">
+                    Donate Now
+                </h2>
+                <p class="animate__animated animate__fadeInUp">
+                    Make a difference with your generosity.
+                </p>
+            </div>
+        </div>
+        <!--End of Slide-1-->
+        <!--Slide-1-->
+        <div class="carousel-item">
+            <div class="carousel-container">
+                <h2 class="animate__animated animate__backInDown">
+                    Join Us!
+                </h2>
+                <p class="animate__animated animate__fadeInUp">
+                    Together, we can make a difference. Whether you are a concerned citizen, a dedicated volunteer, or a potential partner,
+                    we invite you to join us in our mission to protect and restore the natural world.
+                </p>
+            </div>
+        </div>
+        <!--End of Slide-1-->
+        <!--Slide-1-->
+        <div class="carousel-item">
+            <div class="carousel-container">
+                <h2 class="animate__animated animate__backInDown">
+                  Be a part!
+                </h2>
+                <p class="animate__animated animate__fadeInUp">
+                    By working together, we can ensure that our oceans and lands continue to thrive, supporting life in all its forms.
+                </p>
+            </div>
+        </div>
+        <!--End of Slide-1-->
+        <a class="carousel-control-prev"href="#heroCarousel"role="button"
+        data-slide="prev">
+        <span class="carousel-control-prev-icon fas fa-chevron-left"aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+
+    </a>
+    <a class="carousel-control-next"href="#heroCarousel"role="button"
+        data-slide="next">
+        <span class="carousel-control-next-icon fas fa-chevron-right"aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+
+    </a>
+
+        </div>
+      </section>
+
+      <!--end of hero Section-->
+
+      <!--About us-->
+      <section class="mt-5">
+          <div class="container">
+              <div class="row justify-content-center mb-5">
+                  <div class="col-md-8 text-center heading-section" id="about1">
+                      <span>About Us</span>
+                      <h2 class="mb-3">Our Mission | Vision & Plans</h2>
+                  </div>
+              </div>
+              <!------>
+              <div class="row tabs mt-4">
+                  <div class="col-md-4">
+                      <ul class="nav nav-pills nav-fill d-md-flex d-block flex-column">
+                          <li class="nav-item text-left">
+                              <a class="nav-link active py-4"data-toggle="tab"
+                              href="#about-1">About</a>
+                          </li>
+                          <li class="nav-item text-left">
+                            <a class="nav-link py-4"data-toggle="tab"
+                            href="#about-2">Our Beginning</a>
+                        </li>
+                        <li class="nav-item text-left">
+                            <a class="nav-link py-4"data-toggle="tab"
+                            href="#about-3">Our Mission</a>
+                        </li>
+                        <li class="nav-item text-left">
+                            <a class="nav-link py-4"data-toggle="tab"
+                            href="#about-4">Our Vision</a>
+                        </li>
+                        <li class="nav-item text-left">
+                            <a class="nav-link py-4"data-toggle="tab"
+                            href="#about-5">Our Mandate</a>
+                        </li>
+                        <li class="nav-item text-left">
+                            <a class="nav-link py-4"data-toggle="tab"
+                            href="#about-6">Our Plans</a>
+                        </li>
+                      </ul>
+                  </div>
+                  <!----->
+                  <div class="col-md-8">
+                      <div class="tab-content">
+                          <div class="tab-pane container p-0 active"id="about-1">
+            <div class="img"style="background-image: url(https://d1jyxxz9imt9yb.cloudfront.net/medialib/3961/image/s768x1300/LC202306_AmboseliWildlife_045_429171_reduced.jpg);"></div>
+            <h3><a href="#">About Us</a></h3>
+            <p>Welcome to EcoGuardians,
+                 a passionate advocate for the preservation and sustainable management
+                 of our planet's invaluable natural resources.
+                </p>
+                          </div>
+                          <!----->
+             <div class="tab-pane container p-0"id="about-2">
+                <div class="img"style="background-image: url(https://c4.wallpaperflare.com/wallpaper/965/973/232/birds-peacock-animal-bird-indian-peacock-hd-wallpaper-preview.jpg);"></div>
+             <h3><a href="#">Our Beginning</a></h3>
+               <p>Our beginning at EcoGuardians marks our commitment to addressing environmental challenges, starting with a focused dedication to SDGs 14 and 15, ensuring our actions positively impact marine and terrestrial ecosystems.</p>
+                    </div>
+            <!----->
+            <div class="tab-pane container p-0"id="about-3">
+                <div class="img"style="background-image: url(https://images.cnbctv18.com/wp-content/uploads/2023/09/red-panda-780x438.jpg);"></div>
+             <h3><a href="#">Our Mission</a></h3>
+               <p>Our mission is to drive impactful change aligned with the United Nations'
+                Sustainable Development Goals 14 (Life Below Water) and 15 (Life on Land).</p>
+                    </div>
+            <!----->
+            <div class="tab-pane container p-0"id="about-4">
+                <div class="img"style="background-image: url(https://i.postimg.cc/HxdKh6jF/about-4.jpg);"></div>
+             <h3><a href="#">Our Vision</a></h3>
+               <p>Our vision at EcoGuardians is to foster a world where marine and terrestrial ecosystems thrive sustainably, promoting biodiversity and ecological balance in alignment with SDGs 14 and 15.</p>
+                    </div>
+            <!----->
+            <div class="tab-pane container p-0"id="about-5">
+                <div class="img"style="background-image: url(https://i.postimg.cc/SQZ5g74t/about-5.jpg);"></div>
+             <h3><a href="#">Our Mandate</a></h3>
+               <p>Our mandate at EcoGuardians is to actively contribute to the conservation and sustainable use of marine and terrestrial ecosystems, aligning with SDGs 14 and 15</p>
+                    </div>
+            <!----->
+            <div class="tab-pane container p-0"id="about-6">
+                <div class="img"style="background-image: url(https://i.postimg.cc/Vv73MXfp/about-6.jpg);"></div>
+             <h3><a href="#">Our Plans</a></h3>
+               <p>At EcoGuardians, we are dedicated to protecting marine and terrestrial ecosystems through innovative solutions, community engagement, and robust conservation strategies.
+                Our aim is to ensure a thriving, biodiverse planet for future generations.</p>
+                    </div>
+            <!----->
+                      </div>
+                  </div>
+
+
+
+                  </div>
+              </div>
+          </div>
+      </section>
+      <!--End About us-->
+      <!---Stories Section-->
+      <section class="mt-3">
+          <div class="stories">
+              <div class="container">
+                  <div class="section-title text-center" id="stories1">
+                      <h3>Stories</h3>
+                      <p>Read our stories and JOIN US!</p>
+                  </div>
+                  <!----->
+                  <div class="row">
+                      <div class="col-md-4">
+                          <div class="story-box overlay shadow">
+                              <div class="story-icon">
+                                  <i class="fas fa-heart"></i>
+                              </div>
+                              <h2>Protection</h2>
+                              <p>Protect and restore natural habitats to preserve biodiversity.  Support initiatives to safeguard endangered species and their habitats.</p>
+                          </div>
+                      </div>
+                      <!----->
+                      <div class="col-md-4">
+                        <div class="story-box overlay shadow">
+                            <div class="story-icon">
+                                <i class="fas fa-hand-holding-water"></i>
+                            </div>
+                            <h2>Clean Water</h2>
+                            <p>Increase awareness about the importance of clean oceans through education.
+                                Establish protected areas to conserve biodiversity.
+                            </p>
+                        </div>
+                    </div>
+                    <!----->
+                    <div class="col-md-4">
+                        <div class="story-box overlay shadow">
+                            <div class="story-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h2>Plants</h2>
+                            <p>Plants are an essential resource - we rely on them for food, water, medicine, the air we breathe, habitat, our climate and more.</p>
+                        </div>
+                    </div>
+                    <!----->
+                  </div>
+              </div>
+          </div>
+      </section>
+ <!--- End of Stories Section-->
+ <!---Projects Section-->
+ <section class="project py-5">
+     <div class="container">
+         <div class="row my-3">
+             <div class="col-10 mx-auto text-center" id="projects1">
+                 <h1 class="text-uppercase">Ongoing Projects</h1>
+             </div>
+         </div>
+         <!----->
+         <div class="row">
+             <!--single Project-->
+             <div class="col-10 col-md-6 col-lg-4">
+                 <div class="project-container p-5 outline">
+                     <img src="https://i.postimg.cc/0Qn3R7wj/img-1.jpg"class="img-fluid grow"alt="">
+                     <a class="donation text-capitalize" href="#" onclick="scrollToSection('donation1')">Donate Now</a>
+                 </div>
+                 <h4 class="text-capitalize text-center my-2">Project Mt Gorilla</h4>
+                 <h6 class="text-center">
+                     For the endangered Mountain Gorillas
+                 </h6>
+                 <br>
+             </div>
+             <!--End of Single Project-->
+             <!--single Project-->
+             <div class="col-10 col-md-6 col-lg-4">
+                <div class="project-container p-5 outline">
+                    <img src="https://i.postimg.cc/Xv8xp47D/img-2.jpg"class="img-fluid grow"alt="">
+                    <a href="#" onclick="scrollToSection('donation1')" class="donation text-capitalize">Donate Now</a>
+                </div>
+                <h4 class="text-capitalize text-center my-2">Project Nubian</h4>
+                <h6 class="text-center">
+                    For the Critically endangered Nubian Giraffes
+                </h6>
+                <br>
+            </div>
+            <!--End of Single Project-->
+            <!--single Project-->
+            <div class="col-10 col-md-6 col-lg-4">
+                <div class="project-container p-5 outline">
+                    <img src="https://i.postimg.cc/vZ50wWRy/img-3.jpg"class="img-fluid grow"alt="">
+                    <a href="#" onclick="scrollToSection('donation1')" class="donation text-capitalize">Donate Now</a>
+                </div>
+                <h4 class="text-capitalize text-center my-2">The Ocean Cleanup</h4>
+                <h6 class="text-center">
+                    Ensuring a sustainable future.
+                </h6>
+                <br>
+            </div>
+            <!--End of Single Project-->
+            <!--single Project-->
+            <div class="col-10 col-md-6 col-lg-4">
+                <div class="project-container p-5 outline">
+                    <img src="https://i.postimg.cc/tCx5Fh46/img-4.jpg"class="img-fluid grow"alt="">
+                    <a href="#" onclick="scrollToSection('donation1')" class="donation text-capitalize">Donate Now</a>
+                </div>
+                <h4 class="text-capitalize text-center my-2">Green World</h4>
+                <h6 class="text-center">
+                    Planting trees on the streets
+                </h6>
+            </div>
+            <!--End of Single Project-->
+            <!--single Project-->
+            <div class="col-10 col-md-6 col-lg-4">
+                <div class="project-container p-5 outline">
+                    <img src="https://i.postimg.cc/Px5yD9Cf/img-5.jpg"class="img-fluid grow"alt="">
+                    <a href="#" onclick="scrollToSection('donation1')" class="donation text-capitalize">Donate Now</a>
+                </div>
+                <h4 class="text-capitalize text-center my-2">The Air Cleanup</h4>
+                <h6 class="text-center">
+                    Ensuring a pollution free environment for the aves.
+                </h6>
+            </div>
+            <!--End of Single Project-->
+            <!--single Project-->
+            <div class="col-10 col-md-6 col-lg-4">
+                <div class="project-container p-5 outline">
+                    <img src="https://i.postimg.cc/s2ywjvyh/img-6.jpg"class="img-fluid grow"alt="">
+                    <a herf="#"class="donation text-capitalize">Donate Now</a>
+                </div>
+                <h4 class="text-capitalize text-center my-2">Project Adelie</h4>
+                <h6 class="text-center">
+                    Helping the Adelie Penguins survive despite the climate changes.
+                </h6>
+            </div>
+            <!--End of Single Project-->
+
+         </div>
+     </div>
+ </section>
+<!---End of the Projects Section-->
+
+<!-- Team Section-->
+<section class="team">
+    <div class="container">
+        <div class="section-title" id="team1">
+            <h2 class="text-center">Our Team</h2>
+            <p class="text-center">Our Entire Mission has been possible only because of The Android Club from VIT Chennai.<br>
+            Make sure to give them a follow on instagram @androidvitc<br>
+        and dont forget to donate and make a difference!</p>
+        </div>
+        <br>
+        <div style="max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;">
+            <model-viewer
+                id="model-viewer"
+                src="scene.gltf"
+                alt="A 3D model"
+                camera-controls
+                autoplay
+                interaction-policy=none
+                auto-rotate
+                rotation-per-second="30deg">
+            </model-viewer>
+
+            <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+            <br>
+
+        </div>
+    </div>
+</section>
+<!---End of Team Section-->
+<!--Finished projects-->
+<section>
+    <div class="container">
+        <div class="text-center">
+            <h2 class="mb-5">Finished Projects</h2>
+        </div>
+        <div class="row no-gutters">
+            <div class="col-lg-6">
+                <a class="project-item"href="">
+                    <span class="text">
+                        <span class="des">
+                            <h2>Project 3000</h2>
+                            <p class="mb-0">
+                                Our goal is to plant 3000 trees to help restore our global forests.
+                            </p>
+                        </span>
+                    </span>
+                    <img src="https://i.postimg.cc/7Z1nWw7Y/pro-1.jpg"class="img-fluid"alt="">
+                </a>
+            </div>
+            <!---->
+            <div class="col-lg-6">
+                <a class="project-item"href="">
+                    <span class="text">
+                        <span class="des">
+                            <h2>Project Dolphin</h2>
+                            <p class="mb-0">
+                                Provided financial support for conservation and anti-poaching activities.
+                            </p>
+                        </span>
+                    </span>
+                    <img src="https://i.postimg.cc/pXh0kwqp/pro-2.jpg"class="img-fluid"alt="">
+                </a>
+            </div>
+            <!---->
+            <div class="col-lg-6">
+                <a class="project-item"href="">
+                    <span class="text">
+                        <span class="des">
+                            <h2>Dear Deers</h2>
+                            <p class="mb-0">
+                                Due to the destruction and shrinking of forest areas, we gave it new homes to survive.
+                            </p>
+                        </span>
+                    </span>
+                    <img src="https://i.postimg.cc/nzW4Dz8T/pro-3.jpg"class="img-fluid"alt="">
+                </a>
+            </div>
+            <!---->
+            <div class="col-lg-6">
+                <a class="project-item"href="">
+                    <span class="text">
+                        <span class="des">
+                            <h2>The Water Project</h2>
+                            <p class="mb-0">
+                                We fought water against projects that degrade or destroy vital wildlife habitat, and that increase flood risks to communities.
+                            </p>
+                        </span>
+                    </span>
+                    <img src="https://i.postimg.cc/0y1CnbzB/pro-4.jpg"class="img-fluid"alt="">
+                </a>
+            </div>
+            <!---->
+        </div>
+    </div>
+</section>
+<!---End of finished projects Section-->
+<!---Donation Section-->
+<section class="mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="text-center mb-55" id="donation1">
+                    <h3>Make a Donation</h3>
+                </div>
+            </div>
+        </div>
+        <!---->
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+            <form class="donation-form">
+               <div class="row align-items-center">
+                <div class="col-md-4">
+             <div class="amount">
+           <div class="input-field">
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span></div>
+
+            <input type="text" class="form-control"placeholder="10,000"
+            aria-label="Username">
+                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!----->
+                        <div class="col-md-8">
+                         <div class="amount">
+                       <div class="need d-flex align-items-center
+                        justify-content-between">
+                        <div class="select">
+                            <h5>Select Amount</h5>
+                        </div>
+                        <div class="funds">
+                            <input type="radio"name="radio-group">
+                            <label for="fund-0">$5</label>
+                        </div>
+                        <div class="funds">
+                            <input type="radio"name="radio-group">
+                            <label for="fund-1">$10</label>
+                        </div>
+                        <div class="funds">
+                            <input type="radio"name="radio-group">
+                            <label for="fund-2">$15</label>
+                        </div>
+                        <div class="funds">
+                            <input type="radio"name="radio-group">
+                            <label for="fund-4">30</label>
+                        </div>
+                        <div class="funds">
+                            <input type="radio"name="radio-group">
+                            <label for="fund-5">$50</label>
+                        </div>
+                        <div class="funds">
+                            <input type="radio"name="radio-group">
+                            <label for="Other">Other</label>
+                        </div>
+
+
+                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-12">
+                <div class="donation-btn text-center">
+                    <a href=""class="btn btn-don">Donate Now</a>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!---End of Donation section Section-->
+<footer class="footer mt-5">
+    <div class="footer-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-des">
+                        <h3>EcoGuardians</h3>
+                        <p class="pb-3">
+                            <em>Adhira K, CSE(spealised AI&Robotics)<br>
+                            in VIT Chennai</em>
+                        </p>
+                        <p>23BRS1131<br><br><strong>
+                            Phone;
+                        </strong>
+                        +91 8870133263<br>
+                        <strong>
+                            Email:
+                        </strong>
+                        adhira.kk2023@vitstudent.ac.in<br>
+
+                    </p>
+                    <div class="social-links mt-3">
+                        <a href=""><i class="fab fa-twitter">
+
+                        </i></a>
+                        <a href=""><i class="fab fa-facebook">
+
+                        </i></a>
+                        <a href=""><i class="fab fa-instagram">
+
+                        </i></a>
+                        <a href=""><i class="fab fa-linkedin">
+
+                        </i></a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Articles</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="https://www.atg.world/view-article/368/saving-animals">ATG</a>
+
+
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="https://timesofindia.indiatimes.com/blogs/toi-edit-page/saving-animals-is-ethical-its-evocative-and-its-smart-business/">Times Of India</a>
+
+
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="https://e360.yale.edu/features/the-real-case-for-saving-species-we-dont-need-them-but-they-need-us">Yale</a>
+
+
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Lorem Ipusm</a>
+
+
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">Lorem Ipusm</a>
+
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 footer-links">
+                    <h4>Other useful websites</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="https://www.wwf.org.uk/what-we-do/protecting-wildlife">WWF</a>
+
+
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="https://www.iucn.org/">IUCN</a>
+
+
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">WCS</a>
+
+
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">CI</a>
+
+
+                        </li>
+                        <li>
+                            <i class="fas fa-chevron-right"></i>
+                            <a href="">F&F International</a>
+
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6 footer-newsletter">
+                    <h4>Our News Letters</h4>
+                    <p>Enter your email below to get daily news about the nature!</p>
+                    <form>
+                        <input type="email" name="email">
+                        <input type="submit" value="Subscribe">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
